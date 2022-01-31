@@ -1,6 +1,6 @@
 # x86-64 Unix dynamic library function calling from console
 ## Info
-This app can call a function from Unix dynamic library with any number of arguments. Supported types are `unsigned` / `signed` `int`, `long`, `long long`, floating point types `float`, `double` and c strings `char*`.
+This app can call a function from Unix dynamic library with any number of arguments. Supported types are `unsigned` / `signed` `int`, `long`, `long long`, floating point types `float`, `double` and C strings `char*`.
 
 ## Compilation:
 ```

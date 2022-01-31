@@ -150,7 +150,7 @@ is_string(const char* s, const size_t n)
 }
 
 void
-readValue(ValueAndType& vat, const char* s)
+convert_string(ValueAndType& vat, const char* s)
 {
     size_t n = strlen(s);
     if (is_string(s, n)) {
@@ -175,13 +175,11 @@ getfunc_address(const char* lib_name, const char* func_name)
     void* result;
     void* handle = dlopen(lib_name, RTLD_LAZY); 
     if (handle == nullptr) {
-        // cerr << dlerror() << endl;
         cerr << "Wrong library location: " << lib_name << endl;
         return 0;
     }
     result = dlsym(handle, func_name);
     if (dlerror() != nullptr) {
-        // cerr << dlerror() << endl;
         cerr << "There is no function " << func_name << " in " << lib_name << endl;
         return 0;
     }
@@ -197,6 +195,7 @@ main(int argc, char** argv)
         cerr << "Not enough arguments!" << endl;
         return 0;
     }
+    
     int current_arg_idx = 1;
     if ((argv[current_arg_idx][0] == '.') || (argv[current_arg_idx][0] == '/')
             || (argv[current_arg_idx][0] == '~')) {
@@ -214,7 +213,7 @@ main(int argc, char** argv)
     vector<ValueAndType> args;
     for ( ; current_arg_idx < argc; current_arg_idx++) {
         ValueAndType arg;
-        readValue(arg, argv[current_arg_idx]);
+        convert_string(arg, argv[current_arg_idx]);
         args.push_back(arg);
     }    
     

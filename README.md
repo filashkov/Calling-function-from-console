@@ -11,7 +11,7 @@ $ clang++ call.cpp -o call -std=c++2a -ldl
 ```
 $ <prog> <lib path [optional, default /lib/x86_64-linux-gnu/libc.so.6]> <function name> <args...>
 ```
-Lib path should start with `/`, `~/` or `./`, because it will help distinguish the name of the library from the name of the called function.
+Lib path should start with `/`, `~/` or `./`, to distinguish a library name from a function name.
 
 ## Examples:
 ```

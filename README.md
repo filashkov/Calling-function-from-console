@@ -1,5 +1,4 @@
-# x86-64 Unix function calling from dynamic library
-
+# x86-64 Unix dynamic library function calling from console
 ## Info
 This app can call a function from Unix dynamic library with any number of arguments. Supported types are `unsigned` / `signed` `int`, `long`, `long long`, floating point types `float`, `double` and c strings `char*`.
 
@@ -10,7 +9,7 @@ $ clang++ call.cpp -o call -std=c++2a -ldl
 `-ldl` is required to load functions from the dynamic library.
 ## Launch:
 ```
-$ <prog> <[optional, default /lib/x86_64-linux-gnu/libc.so.6] lib path> <function name> <args...>
+$ <prog> <lib path [optional, default /lib/x86_64-linux-gnu/libc.so.6]> <function name> <args...>
 ```
 Lib path should start with `/`, `~/` or `./`, because it will help distinguish the name of the library from the name of the called function.
 
